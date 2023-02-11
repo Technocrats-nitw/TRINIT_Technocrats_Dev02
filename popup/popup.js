@@ -107,15 +107,32 @@ showStats = () => {
   const gCO2Total = Math.round(GESDataCenterTotal + GESNetworkTotal + GESDeviceTotal);
 
 
-  if (!pieChart) {
-    pieChart = new Chartist.Pie('.ct-chart', {labels, series}, {
-      donut: true,
-      donutWidth: 60,
-      donutSolid: true,
-      startAngle: 270,
-      showLabel: true
-    });
-  } else {
+  var options = {
+    labelInterpolationFnc: function(value) {
+      return value
+    }
+  };
+
+  var responsiveOptions = [
+    ['screen and (min-width: 640px)', {
+      chartPadding: 30,
+      labelOffset: 100,
+      labelDirection: 'explode',
+      labelInterpolationFnc: function(value) {
+        return value;
+      }
+    }],
+    ['screen and (min-width: 1024px)', {
+      labelOffset: 80,
+      chartPadding: 20
+    }]
+  ];
+
+  if(!pieChart){
+    var data = {labels, series};
+    new Chartist.Pie('#pie-chart', data, options, responsiveOptions);    
+  }
+  else {
     pieChart.update({labels, series});
   }
 
