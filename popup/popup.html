@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="vendor/chartist/chartist.css"/>
+<link rel="stylesheet" href="popup.css"/>
+</head>
+
+<body>
+<div class="body">
+    <h1>CoFoo</h1>
+
+   <br/>
+    <div>
+        <button id="startButton" class="button">Start Analysis</button>
+        <button id="stopButton" class="button hidden">Stop Analysis</button>
+        <button id="resetButton" class="button hidden">Reset data</button>
+    </div>
+    <br/>
+    <p id="analysisInProgressMessage" class="hidden">Analysis in progress!</p>
+
+    <div id="stats" class="hidden">
+        
+
+        <div class="leftColumn"><div class="ct-chart ct-golden-section"></div></div>
+        <div class="rightColumn">
+            <span id="statsListTitle">Top traffic websites</span>
+            <ul id="statsListItems"></ul>
+        </div>
+        <div class="clear"></div>
+        <br/>
+        <div style="text-align:center;"><h3>Browsing Impact Index</h3></div>
+        <br/>
+        <div id="equivalence">
+            
+            <div class="column50">
+                <div class="block">
+                    <img src="img/time.svg" />
+                    <span id="duration"></span>
+                    <span id="durationItem" class="unit">minutes</span>
+                </div>
+            </div>
+            <div class="column50">
+                <div class="block">
+                    <img src="img/energy.svg" />
+                    <span id="kWhTotalValue"></span>
+                    <span id="kWhTotalUnit" class="unit">kWh</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="column50">
+                <div class="block">
+                    <img src="img/arrows.svg" />
+                    <span id="mbTotalValue"></span>
+                    <span id="mbTotalUnit" class="unit">Mb</span>
+                </div>
+            </div>
+            <div class="column50">
+                <div class="block">
+                    <img src="img/gco2.svg" />
+                    <span id="gCO2Value"></span>
+                    <span id="gCO2Item" class="unit">gCO<sub>2</sub>e</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <p><a class="button" href="dashboard.html" target="_blank">Analytics</a></p>
+        </div>
+    </div>
+    
+</div>
+<script src="vendor/chartist/chartist.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
