@@ -24,20 +24,31 @@ function buildTable(){
 	  
 		const gCO2Total = Math.round(GESDataCenterTotal + GESNetworkTotal);	  
 		coE.push(gCO2Total);
+	}
 
-		if(gCO2Total < 20){
+	const sortedStats = [];
+	for (var i = web.length - 1; i >= 0; i--) {
+		sortedStats.push({ 'web': web[i], 'coE': coE[i] });
+	}
+	sortedStats.sort(function(a, b) {
+	    return a.coE < b.coE ? 1 : a.coE > b.coE ? -1 : 0
+	});
+
+	for(var i = 0; i < web.length; i++) {
+		if(sortedStats[i].coE < 20){
 			color.push('green');
-		}else if(gCO2Total < 50){
+		}else if(sortedStats[i].coE < 50){
 			color.push('semigreen');
 		}else{
 			color.push('nongreen');
 		}
 	}
+
 	var table = document.getElementById('footprintTable')
 	for (var i = 0; i < web.length; i++){
 		var row = `<tr> 
-						<td><p>${web[i]}</p></td>
-						<td>${coE[i]}g</td>
+						<td><p>${sortedStats[i].web}</p></td>
+						<td>${sortedStats[i].coE}g</td>
 						<td><span class="status ${color[i]}">${color[i]}</span></td>
 				  </tr>`
 		table.innerHTML += row
