@@ -599,3 +599,41 @@ body {
 		min-width: 420px;
 	}
 }
+
+
+
+/* chart */
+#pie-chart{
+    background-color: rgb(55, 71, 79);
+    width: 95%;
+    height: 250px;
+    font-family: Lato, Helvetica-Neue, monospace;
+}
+#pie-canvas{
+    position: absolute;
+    top: 75px;
+    left: 120px;
+}
+
+
+.ct-series-a .ct-slice-pie {
+  fill: #00a79d;
+}
+.ct-series-b .ct-slice-pie {
+  fill: #1c75bc;
+}
+.ct-series-c .ct-slice-pie {
+  fill: #92278f;
+}
+.ct-series-d .ct-slice-pie {
+  fill: #fbb040;
+}
+.ct-series-e .ct-slice-pie {
+  fill: #f15a29;
+}
+.ct-series-f .ct-slice-pie {
+  fill: #be1e2d;
+}
+.ct-label{
+  fill: white;
+}

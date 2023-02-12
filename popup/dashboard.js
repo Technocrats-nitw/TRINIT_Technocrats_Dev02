@@ -130,3 +130,39 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+
+
+// CHART
+let pieChart;
+
+var options = {
+    labelInterpolationFnc: function(value) {
+      return value
+    }
+  };
+
+  var responsiveOptions = [
+    ['screen and (min-width: 640px)', {
+      chartPadding: 30,
+      labelOffset: 100,
+      labelDirection: 'explode',
+      labelInterpolationFnc: function(value) {
+        return value;
+      }
+    }],
+    ['screen and (min-width: 1024px)', {
+      labelOffset: 80,
+      chartPadding: 20
+    }]
+  ];
+
+  const labels = JSON.parse(localStorage.getItem('labels'));
+  const series = JSON.parse(localStorage.getItem('series'));
+
+  if(!pieChart){
+    var data = {labels, series};
+    new Chartist.Pie('#pie-chart', data, options, responsiveOptions);    
+  }
+  else {
+    pieChart.update({labels, series});
+  }

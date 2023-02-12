@@ -7,6 +7,7 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
+	<link rel="stylesheet" href="vendor/chartist/chartist.css"/>
 	<link rel="stylesheet" href="dashboard.css">
 
 	<title>Carbon Footprint</title>
@@ -142,7 +143,9 @@
 				<div class="todo">
 					<div class="head">
 						<h3>Stats</h3>
-						<div class="leftColumn"><div class="ct-chart ct-golden-section"></div></div>
+						<div class="leftColumn">
+							<div id="pie-chart"></div>
+						</div>
 						<div class="rightColumn">
 							<span id="statsListTitle" translate="topTraffic"></span>
 							<ul id="statsListItems"></ul>
@@ -156,7 +159,7 @@
 	</section>
 	<!-- CONTENT -->
 	
-
+	<script src="vendor/chartist/chartist.js"></script>
 	<script src="dashboard.js"></script>
 </body>
 </html>

@@ -130,9 +130,13 @@ showStats = () => {
 
   if(!pieChart){
     var data = {labels, series};
+    localStorage.setItem('labels', JSON.stringify(labels));
+    localStorage.setItem('series', JSON.stringify(series));
     new Chartist.Pie('#pie-chart', data, options, responsiveOptions);    
   }
   else {
+    localStorage.setItem('labels', JSON.stringify(labels));
+    localStorage.setItem('series', JSON.stringify(series));
     pieChart.update({labels, series});
   }
 
