@@ -27,6 +27,7 @@ CO<sub>foo</sub> is a Chrome browser extension that helps users understand the c
 CO<sub>foo</sub> is a simple and effective tool for reducing your carbon footprint and energy usage while browsing the web. Start tracking your website energy consumption today and make a positive impact on the environment!
 
 ### Output
-
+![alt text](https://github.com/Technocrats-nitw/TRINIT_Technocrats_Dev02/blob/d1abeeb95e8ab3b07a4448872921efcd4854b58e/extension-popup.png)
+![alt text](https://github.com/Technocrats-nitw/TRINIT_Technocrats_Dev02/blob/d1abeeb95e8ab3b07a4448872921efcd4854b58e/dashboard.png)
 
 
