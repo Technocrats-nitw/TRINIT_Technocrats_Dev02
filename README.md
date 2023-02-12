@@ -28,7 +28,9 @@ CO<sub>foo</sub> is a simple and effective tool for reducing your carbon footpri
 
 ### Output
 ![alt text](https://github.com/Technocrats-nitw/TRINIT_Technocrats_Dev02/blob/d1abeeb95e8ab3b07a4448872921efcd4854b58e/dashboard.png)
-<br/>
+&nbsp;
+&nbsp;
+&nbsp;
 ![alt text](https://github.com/Technocrats-nitw/TRINIT_Technocrats_Dev02/blob/d1abeeb95e8ab3b07a4448872921efcd4854b58e/extension-popup.png)
 
 
