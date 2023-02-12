@@ -150,14 +150,13 @@ var options = {
   var responsiveOptions = [
     ['screen and (min-width: 640px)', {
       chartPadding: 30,
-      labelOffset: 100,
-      labelDirection: 'explode',
+      labelOffset: 10,
       labelInterpolationFnc: function(value) {
         return value;
       }
     }],
     ['screen and (min-width: 1024px)', {
-      labelOffset: 80,
+      labelOffset: 20,
       chartPadding: 20
     }]
   ];
