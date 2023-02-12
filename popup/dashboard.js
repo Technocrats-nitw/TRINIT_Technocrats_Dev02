@@ -3,6 +3,48 @@ document.getElementById("gcoe").innerHTML = localStorage.getItem("gCO2Value");
 document.getElementById("mbTotalValue").innerHTML = localStorage.getItem("mbTotalValue");
 document.getElementById("kWhTotalValue").innerHTML = localStorage.getItem("kWhTotalValue");
 
+const defaultCarbonIntensityFactorIngCO2PerKWh = 519;
+const kWhPerByteDataCenter = 0.000000000072;
+const kWhPerByteNetwork = 0.000000000152;
+
+							
+function buildTable(){
+	var x = JSON.parse(localStorage.getItem("myEmissionHistory"));
+	var data = JSON.parse(x[0]);
+	var web = [];
+	var coE = [];
+	var color = [];
+	for(const o in data) {
+		web.push(o) ;
+		const kWhDataCenterTotal = data[o] * kWhPerByteDataCenter;
+		const GESDataCenterTotal = kWhDataCenterTotal * defaultCarbonIntensityFactorIngCO2PerKWh;
+	  
+		const kWhNetworkTotal = data[o] * kWhPerByteNetwork;
+		const GESNetworkTotal = kWhNetworkTotal * defaultCarbonIntensityFactorIngCO2PerKWh;
+	  
+		const gCO2Total = Math.round(GESDataCenterTotal + GESNetworkTotal);	  
+		coE.push(gCO2Total);
+
+		if(gCO2Total < 20){
+			color.push('green');
+		}else if(gCO2Total < 50){
+			color.push('semigreen');
+		}else{
+			color.push('nongreen');
+		}
+	}
+	var table = document.getElementById('footprintTable')
+	for (var i = 0; i < web.length; i++){
+		var row = `<tr> 
+						<td><p>${web[i]}</p></td>
+						<td>${coE[i]}g</td>
+						<td><span class="status ${color[i]}">${color[i]}</span></td>
+				  </tr>`
+		table.innerHTML += row
+	}
+}
+buildTable()
+
 allSideMenu.forEach(item=> {
 	const li = item.parentElement;
 

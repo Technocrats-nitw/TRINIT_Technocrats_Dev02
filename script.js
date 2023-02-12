@@ -75,13 +75,13 @@ addOneHour = () => {
 
   stats = JSON.parse(localStorage.getItem("stats"));
 
-  emissionHistory = JSON.parse(localStorage.getItem("myEmissionHistory"))
+  emissionHistory = (localStorage.getItem("myEmissionHistory"))
 
   emissionHistory.push(stats);
 
   localStorage.setItem('stats', JSON.stringify({}))
 
-  localStorage.setItem("myEmissionHistory", JSON.stringify(emissionHistory))
+  localStorage.setItem("myEmissionHistory", (emissionHistory))
 
 }
 
@@ -104,7 +104,7 @@ handleMessage = (request) => {
     }
 
     if (!addOneHourInterval){
-      addOneHourInterval = setInterval(addOneHour, 80000);
+      addOneHourInterval = setInterval(addOneHour, 10000);
     }
 
     return;
