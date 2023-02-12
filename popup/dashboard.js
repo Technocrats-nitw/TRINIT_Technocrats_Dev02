@@ -1,11 +1,17 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
-document.getElementById("gcoe").innerHTML = localStorage.getItem("gCO2Value");
-document.getElementById("mbTotalValue").innerHTML = localStorage.getItem("mbTotalValue");
-document.getElementById("kWhTotalValue").innerHTML = localStorage.getItem("kWhTotalValue");
 
+const gCO2Total = localStorage.getItem("gCO2Value") ;
 const defaultCarbonIntensityFactorIngCO2PerKWh = 519;
 const kWhPerByteDataCenter = 0.000000000072;
 const kWhPerByteNetwork = 0.000000000152;
+const GESgCO2ForOneKmByCar = 220;
+const treeOffsetFactor = 16500;
+
+document.getElementById("gcoe").innerHTML = gCO2Total;
+document.getElementById("mbTotalValue").innerHTML = localStorage.getItem("mbTotalValue");
+document.getElementById("kWhTotalValue").innerHTML = localStorage.getItem("kWhTotalValue");
+document.getElementById("kmByCarValue").innerHTML =  Math.round(1000 * gCO2Total / GESgCO2ForOneKmByCar) / 1000;
+document.getElementById("treeValue").innerHTML =  Math.round(1000 * gCO2Total / treeOffsetFactor) / 1000;
 
 							
 function buildTable(){
@@ -35,9 +41,9 @@ function buildTable(){
 	});
 
 	for(var i = 0; i < web.length; i++) {
-		if(sortedStats[i].coE < 20){
+		if(sortedStats[i].coE < 10){
 			color.push('green');
-		}else if(sortedStats[i].coE < 50){
+		}else if(sortedStats[i].coE < 20){
 			color.push('semigreen');
 		}else{
 			color.push('nongreen');
